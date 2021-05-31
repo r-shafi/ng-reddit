@@ -1,0 +1,19 @@
+<div class="container">
+  <div *ngIf="posts" class="card-container">
+    <div *ngFor="let post of posts">
+      <div *ngIf="isMedia(post)" class="card">
+        <img [src]="post.thumbnail" [alt]="post.title" />
+        <div class="info">
+          <div class="primary">
+            <h2>{{ post.title }}</h2>
+          </div>
+          <div class="secondery">
+            <p class="sub">{{ post.subreddit }}</p>
+            <p class="author">{{ post.author }}</p>
+            <p class="ups">{{ post.upvote_ratio |percent}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
