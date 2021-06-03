@@ -1,18 +1,28 @@
-<div class="container">
-  <div *ngIf="posts" class="card-container">
-    <div *ngFor="let post of posts">
-      <div *ngIf="isMedia(post)" class="card">
-        <img [src]="post.thumbnail" [alt]="post.title" />
-        <div class="info">
-          <div class="primary">
-            <h2>{{ post.title }}</h2>
-          </div>
-          <div class="secondery">
-            <p class="sub">{{ post.subreddit }}</p>
-            <p class="author">{{ post.author }}</p>
-            <p class="ups">{{ post.upvote_ratio |percent}}</p>
-          </div>
-        </div>
+<div *ngIf="posts" class="container">
+  <div *ngFor="let post of posts" class="card" (click)="openPost(post)">
+    <div class="thumbnail">
+      <img
+        *ngIf="isURL(post.thumbnail)"
+        [src]="post.thumbnail"
+        [alt]="post.title"
+      />
+      <div
+        *ngIf="!isURL(post.thumbnail)"
+        class="text-as-image"
+        [class.nsfw]="post.thumbnail === 'nsfw'"
+      >
+        <p>{{post.subreddit}}</p>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="primary">
+        <h1 class="title">{{post.title}}</h1>
+        <p class="aproval">{{post.upvote_ratio | percent}}</p>
+      </div>
+      <div class="secondery">
+        <p class="author">Author: {{post.author}}</p>
+        <p class="sub">Sub: {{post.subreddit}}</p>
       </div>
     </div>
   </div>

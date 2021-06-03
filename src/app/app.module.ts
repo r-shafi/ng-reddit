@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/pages/home/home.component';
 import { SubComponent } from './components/pages/sub/sub.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/pages/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SubComponent } from './components/pages/sub/sub.component';
     NavigationComponent,
     HomeComponent,
     SubComponent,
+    DialogComponent,
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +42,7 @@ import { SubComponent } from './components/pages/sub/sub.component';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

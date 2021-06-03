@@ -20,4 +20,5 @@ export interface Post {
   post_hint: string;
   is_video: boolean;
   is_reddit_media_domain?: boolean;
+  is_self: boolean;
 }

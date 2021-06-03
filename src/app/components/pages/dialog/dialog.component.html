@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 mat-dialog-title>{{ post.title }}</h1>
+  <div class="media">
+    <ng-container *ngIf="!post.is_self">
+      <!-- show only if post is not text -->
+      <ng-container *ngIf="isVid(post)">
+        <video [src]="post.url"></video>
+      </ng-container>
+      <ng-container *ngIf="!isVid(post)">
+        <img [src]="post.url" />
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
